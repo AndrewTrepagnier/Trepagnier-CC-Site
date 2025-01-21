@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trepagnier Dot CC</title>
+    {% load static %}
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="{% static 'homepage/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile-section">
+                <div class="profile-pic">
+                    <!-- Link to the profile picture -->
+                    <img src="{% static 'homepage/best_one.jpg' %}" alt="Profile Picture">
+                </div>
+                <!-- University emblem -->
+                <div class="emblem-bubble">
+                    <img src="{% static 'homepage/mississippi-state.png' %}" alt="University Emblem">
+                </div>
+                <!-- Job emblem -->
+                <div class="job-bubble">
+                    <img src="{% static 'homepage/exxon-mobil.svg' %}" alt="Job Emblem">
+                </div>
+            </div>
+            <div class="profile-info">
+                <h1>Andrew Trepagnier</h1>
+                <h2>Mechanical Engineering Undergrad, Mississippi State</h2>
+            </div>
+        </div>
+        <div class="bio">
+            <br>
+            <p>Currently: Working on something new</p>
+
+            <p>Contact me through email: firstname@lastname.cc</p>
+        </div>
+        <div class="credentials">
+            <h3>About Me</h3>
+            <div class="highlight-item">
+                <a href="#">> Blog</a>
+            </div>
+
+            <div class="highlight-item">
+                <a href="https://github.com/AndrewTrepagnier">> Github</a>
+            </div>
+            <div class="highlight-item">
+                 <a href="{% static 'homepage/resume.pdf' %}" target="_blank">> View My Resume</a>
+            </div>
+            <div class="highlight-item">
+                <a href="#">> Recommendations</a>
+            </div>
+            <div class="highlight-item">
+                <a href="#">> Publications / Authored Works</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
