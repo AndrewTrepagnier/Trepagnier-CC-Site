@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trepagnier Dot CC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .profile-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .profile-pic {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .emblem-container {
+            position: absolute;
+            bottom: 14px; /* Shifted up by increasing bottom */
+            right: -40px; /* Shifted right by increasing right */
+            display: flex;
+            align-items: center;
+        }
+        .emblem {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border: 0.5px solid lightslategrey; /* Add a blue ring around the emblem */
+            position: absolute;
+}
+        .emblem.msu {
+            z-index: 2;
+            right: 20px;
+        }
+        .emblem.jhu {
+            z-index: 1; /* JHU emblem is underneath */
+            right: 0;
+        }
+        .emblem img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .profile-info {
+            flex: 1;
+        }
+        .profile-info h1 {
+            font-size: 28px;
+            margin: 0;
+        }
+        .profile-info h2 {
+            font-size: 16px;
+            color: gray;
+            margin: 5px 0 10px 0;
+        }
+        .bio {
+            margin-bottom: 20px;
+        }
+        .credentials {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .credentials h3 {
+            margin-top: 0;
+        }
+        .highlight-item {
+            margin-bottom: 8px;
+        }
+        .highlight-item a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .highlight-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile-section">
+                <!-- Profile Picture -->
+                <div class="profile-pic">
+                    <img src="/best_one.jpg" alt="Profile Picture">
+                </div>
+                <!-- Overlapping Emblem Bubbles -->
+                <div class="emblem-container">
+                    <!-- Mississippi State Emblem -->
+                    <div class="emblem msu">
+                        <img src="../Rice-University-Symbol.png" alt="Mississippi State Emblem">
+                    </div>
+                    <!-- Johns Hopkins Emblem -->
+                    <div class="emblem jhu">
+                        <img src="MSU.png" alt="Johns Hopkins Emblem">
+                    </div>
+                </div>
+            </div>
+            <div class="profile-info">
+                <h1>Andrew Trepagnier</h1>
+                <h2>Mechanical Engineering Undergrad, Mississippi State</h2>
+            </div>
+        </div>
+        <div class="bio">
+            <p>Here to learn and share.</p>
+            <p>Contact me through email: firstname@lastname.cc</p>
+        </div>
+        <div class="credentials">
+            <h3>About Me</h3>
+            <div class="highlight-item">
+                <a href="#">> Blog</a>
+            </div>
+            <div class="highlight-item">
+                <a href="#">> Resume</a>
+            </div>
+            <div class="highlight-item">
+                <a href="https://github.com/AndrewTrepagnier">> Github</a>
+            </div>
+            <div class="highlight-item">
+                <a href="#">> Publications / Past Works</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
