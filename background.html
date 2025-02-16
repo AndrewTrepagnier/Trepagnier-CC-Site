@@ -5,12 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trepagnier Dot CC</title>
     <style>
+        /* Add these new styles */
+        :root {
+            --bg-color: #2d2d2d;
+            --text-color: #e0e0e0;
+            --subtitle-color: #b0b0b0;
+            --separator-color: #404040;
+            --dropdown-bg: #363636;
+            --link-color: #4a9eff;
+            --link-hover: #6eb4ff;
+        }
+
+        .light-theme {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --subtitle-color: gray;
+            --separator-color: #ccc;
+            --dropdown-bg: #f5f5f5;
+            --link-color: #007BFF;
+            --link-hover: #0056b3;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: var(--bg-color);
             text-align: center;
+            color: var(--text-color);
         }
         .header-container {
             display: flex;
@@ -65,7 +87,7 @@
         }
         .profile-info h2 {
             font-size: 18px;
-            color: gray;
+            color: var(--subtitle-color);
             margin: 5px 0 0 0;
             font-weight: bold;
         }
@@ -73,7 +95,7 @@
             width: 80%;
             max-width: 900px;
             margin: 0 auto;
-            border-bottom: 2px solid #ccc;
+            border-bottom: 2px solid var(--separator-color);
             margin-bottom: 20px;
         }
         .page-title-container {
@@ -91,7 +113,7 @@
             font-size: 14px;
         }
         .nav-links a {
-            color: #007BFF;
+            color: var(--link-color);
             text-decoration: none;
             margin-left: 10px;
         }
@@ -101,10 +123,52 @@
         .content {
             font-size: 18px;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
             max-width: 900px;
             margin: 0 auto;
             text-align: left;
+        }
+        .quote-trigger {
+            display: none !important;
+        }
+        .quote-dropdown {
+            display: none;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: var(--dropdown-bg);
+            border-left: 3px solid #007BFF;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        input[type="checkbox"].quote-trigger:checked + .quote-dropdown {
+            display: block;
+        }
+        .quote-label {
+            color: var(--link-color);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .quote-label:hover {
+            color: var(--link-hover);
+        }
+
+        /* Theme toggle button styles */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background-color: var(--link-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        #theme-toggle:hover {
+            background-color: var(--link-hover);
         }
     </style>
 </head>
@@ -114,7 +178,7 @@
         <div class="header">
             <div class="profile-section">
                 <div class="profile-pic">
-                    <img src="/best_one.jpg" alt="Profile Picture">
+                    <img src="best_one.jpg" alt="Profile Picture">
                 </div>
                 <div class="emblem-bubble">
                     <img src="seal.png" alt="University Emblem">
@@ -132,9 +196,9 @@
     <div class="page-title-container">
         <div class="page-title">My Background</div>
         <div class="nav-links">
-            <a href="#">Home</a>
+            <a href="one-bubble.html">Home</a>
             <a href="https://github.com/AndrewTrepagnier">GitHub</a>
-            <a href="#">Publications</a>
+            <a href="https://linkedin.com/in/andrewtrepagnier">Linkedin</a>
         </div>
     </div>
 
@@ -146,19 +210,64 @@
 
             <p>I enjoy building things, whether it's a full-stack web application, machine-learning models, or embedded systems. My background combines mechanical engineering principles with programming, allowing me to explore fields like robotics, computational modeling, and software engineering.</p>
 
-            <p>Currently, I’m exploring different software projects and working on refining my skills in applied math, statistics, and machine learning.</p>
+            <p>Currently, I'm exploring different software projects and working on refining my skills in applied math, statistics, and machine learning.</p>
 
             <p>In my free time, I like to work on side projects, contribute to open-source, and learn about startup culture and venture-backed software businesses. If you're interested in similar things, feel free to connect!</p>
 
         <h3>Some things I beleive in:</h3>
 
-            <p>I enjoy building things, whether it's a full-stack web application, machine-learning models, or embedded systems. My background combines mechanical engineering principles with programming, allowing me to explore fields like robotics, computational modeling, and software engineering.</p>
+            <p>
+                <ul>
+                    <li> Real growth is uncomfortable and when solutions seem ambiguous </li>
+                        <ul>
+                            <li>You have to be able to hold your work up to someone/something else and self-reflect. Fall short, learn the difference, and then try again.</li>
+                            <li>
+                                The philosophy is from my favorite quote 
+                                <input type="checkbox" id="quote-toggle" class="quote-trigger" style="display: none;">
+                                <div class="quote-dropdown">
+                                    ""[Which leads me onto an incredibly important point. Listen up...] You have to put the hours into yourself, you have to reach a certain level of capability if you want somebody else to give you a chance. 
+                                    This means grueling days, weeks, months of practice and heart shattering moments of self-reflection in your current limits in ability and technique"…
+                                    "If you want to be a professional you need to be able to hold your work up to somebody that you admire and that you honestly see the ways in which you have
+                                    made is inferior and then you need to go back and work on it until you hit another brick wall, then you have to again hold it up against something great to reveal what you need to work on" 
+
+                                    <br><br>
+                                    "The Design process is one of distillation and refinement and you need to be sure that when your sending your work to someone you admire that you are EXHAUSTED of continuously pushing 
+                                    the work that you did to its limits, over, and over again. Just as important as the work you are creating, is the attitude you create with it. More often than not, its your attitude that gets your foot in the door" 
+                                    <br>
+                                    - Frank Stephenson
+                                </div>
+                                <label for="quote-toggle" class="quote-label">by Frank Stephenson</label>
+                                , the McLaren P1 designer
+                            </li>
+                        </ul>
+                    <li> Technical skills are useless without leadership skills</li>
+                        <ul
+                            <li> Great leaders are close to the metal of a problem and have a visceral understanding of what they are leading. </li>
+                            <li> Similarly, a highly technical person must be able to effectively communicate and operate with conviction why still being open-minded.</li>
+                        </ul>
+                    <li> I embrace iterative ambition.</li>
+                        <ul>
+                            <li> The perfect state of your work very rarely ever appears on your first try. </li>
+                            <li> Iteration and feedback are quintessential.</li>
+                        </ul>
+
+                </ul>
+            </p>
 
     </div>
 
+    <!-- Add this button right after the body tag opens -->
+    <button id="theme-toggle">Dark/Light Mode</button>
+
+    <!-- Add this script right before the body tag closes -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+        });
+    </script>
 
 </body>
 </html>
-
-
-
