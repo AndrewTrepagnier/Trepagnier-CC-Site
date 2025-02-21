@@ -5,16 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trepagnier Dot CC</title>
     <style>
+        :root {
+            --bg-color: #2d2d2d;
+            --text-color: #e0e0e0;
+            --subtitle-color: #b0b0b0;
+            --separator-color: #404040;
+            --dropdown-bg: #363636;
+            --link-color: #4a9eff;
+            --link-hover: #6eb4ff;
+            --container-bg: #333333;  /* Dark theme container */
+            --credentials-bg: #3a3a3a;  /* Dark theme credentials */
+        }
+
+        .light-theme {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --subtitle-color: gray;
+            --separator-color: #ccc;
+            --dropdown-bg: #f5f5f5;
+            --link-color: #007BFF;
+            --link-hover: #0056b3;
+            --container-bg: #f0f0f0;  /* Light theme container */
+            --credentials-bg: #ffffff;  /* Light theme credentials */
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
         .container {
-            max-width: 900px;
-            margin: 0 auto;
+            max-width: 950px;
+            margin: 30px auto;
             padding: 20px;
+            background-color: var(--container-bg);
+            color: var(--text-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .header {
             display: flex;
@@ -65,14 +94,14 @@
         }
         .profile-info h2 {
             font-size: 16px;
-            color: gray;
+            color: var(--subtitle-color);
             margin: 5px 0 10px 0;
         }
         .bio {
             margin-bottom: 20px;
         }
         .credentials {
-            background-color: white;
+            background-color: var(--credentials-bg);
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -84,20 +113,46 @@
             margin-bottom: 8px;
         }
         .highlight-item a {
-            color: #007BFF;
+            color: var(--link-color);
             text-decoration: none;
         }
         .highlight-item a:hover {
             text-decoration: underline;
         }
+        .separator {
+            border-bottom: 2px solid var(--separator-color);
+        }
+        .nav-links a {
+            color: var(--link-color);
+        }
+        .nav-links a:hover {
+            color: var(--link-hover);
+        }
+        #theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 8px 16px;
+            background-color: var(--link-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        #theme-toggle:hover {
+            background-color: var(--link-hover);
+        }
     </style>
 </head>
 <body>
+    <button id="theme-toggle">Dark/Light Mode</button>
     <div class="container">
         <div class="header">
             <div class="profile-section">
                 <div class="profile-pic">
-                    <img src="/best_one.jpg" alt="Profile Picture">
+                    <img src="best_one.jpg" alt="Profile Picture">
                 </div>
                 <div class="emblem-bubble">
                     <img src="seal.png" alt="University Emblem">
@@ -115,7 +170,10 @@
         <div class="credentials">
             <h3>About Me</h3>
             <div class="highlight-item">
-                <a href="#">> My Background</a>
+                <a href="background.html">> About me</a>
+            </div>
+            <div class="highlight-item">
+                <a href="timeline.html">> Timeline</a>
             </div>
             <div class="highlight-item">
                 <a href="#">> Blog</a>
@@ -124,9 +182,17 @@
                 <a href="https://github.com/AndrewTrepagnier">> Github</a>
             </div>
             <div class="highlight-item">
-                <a href="#">> Publications / Authored Works</a>
+                <a href="Official_Pure_Y_Poster_Latex_rev2.pdf">> Authored Works</a>
             </div>
         </div>
     </div>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trepagnier Dot CC - Timeline</title>
+    <style>
+        /* Default light theme styles */
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --subtitle-color: gray;
+            --separator-color: #ccc;
+            --dropdown-bg: #f5f5f5;
+            --link-color: #0066cc;
+            --link-hover: #0052a3;
+            --container-bg: #f0f0f0;
+            --credentials-bg: #ffffff;
+            --timeline-line: #0066cc;
+            --timeline-dot: #0066cc;
+            --timeline-card: #ffffff;
+        }
+
+        /* Dark theme styles */
+        .dark-theme {
+            --bg-color: #333;
+            --text-color: #f9f9f9;
+            --subtitle-color: lightgray;
+            --separator-color: #555;
+            --dropdown-bg: #444;
+            --link-color: #66aaff;
+            --link-hover: #88bbff;
+            --container-bg: #444;
+            --credentials-bg: #555;
+            --timeline-line: #88bbff;
+            --timeline-dot: #88bbff;
+            --timeline-card: #666;
+        }
+
+        /* Reuse your existing base styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Header styles */
+        .header-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            width: 600px;
+        }
+        .profile-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        .profile-pic {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .emblem-bubble {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            right: -12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border: 2px solid white;
+        }
+        .emblem-bubble img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .profile-info h1 {
+            font-size: 28px;
+            margin: 0;
+            font-weight: bold;
+        }
+        .profile-info h2 {
+            font-size: 18px;
+            color: var(--subtitle-color);
+            margin: 5px 0 0 0;
+            font-weight: bold;
+        }
+
+        /* Page title container styles */
+        .page-title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-links {
+            font-size: 14px;
+        }
+        .nav-links a {
+            color: var(--link-color);
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Timeline specific styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--timeline-line);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: calc(50% - 40px);
+            margin-bottom: 20px;
+            margin-left: -20px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: var(--timeline-card);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            margin: 0 0 10px 0;
+            color: var(--link-color);
+        }
+
+        .timeline-content .date {
+            font-size: 0.9em;
+            color: var(--subtitle-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: var(--timeline-dot);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -48px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -48px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::before {
+                left: 15px;
+            }
+        }
+
+        /* Theme toggle button styles */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background-color: var(--link-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        #theme-toggle:hover {
+            background-color: var(--link-hover);
+        }
+
+        .timeline-content a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .timeline-content a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="header">
+            <div class="profile-section">
+                <div class="profile-pic">
+                    <img src="best_one.jpg" alt="Profile Picture">
+                </div>
+                <div class="emblem-bubble">
+                    <img src="seal.png" alt="University Emblem">
+                </div>
+            </div>
+            <div class="profile-info">
+                <h1>Andrew Trepagnier</h1>
+                <h2>Mechanical Engineering Undergrad, Mississippi State</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="page-title-container">
+        <div class="page-title">My Timeline</div>
+        <div class="nav-links">
+            <a href="one-bubble.html">Home</a>
+            <a href="background.html">Background</a>
+            <a href="https://github.com/AndrewTrepagnier">GitHub</a>
+            <a href="https://linkedin.com/in/andrewtrepagnier">LinkedIn</a>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="timeline">
+        <!-- Example timeline items - Add your own! -->
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Graduated High School</h3>
+                <div class="date">May 2020</div>
+                <p>
+                    <ul>
+                        <li>Finished 3rd in my graduating class with all Honors</li>
+                        <br>
+                        <li>I was a 4x Louisiana State-level Science Fair Winner in Physics</li>
+                    </ul>
+
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Trinity University</h3>
+                <div class="date">2020 - 2022</div>
+                <p>
+
+                    <ul>
+                        <li>Began undergraduate studies at Trinity University in San Antonio, Texas</li>
+                        <br>
+                        <li>I walked-on to the Trinity University Men's Collegiate Basketball Team</li>
+                        <br>
+                        <li>I interned at <a href = "https://www.iscgrp.com">ISC Constructors</a> as a piping-mechanical engineer intern</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Transferred to Mississippi State University</h3>
+                <div class="date">2022</div>
+                <p>
+                    <ul>
+                        <li>I loved my time at Trinity and met many amazing people but I was hyperset on mechanical engineering and Trinity did not have it</li>
+                        <br>
+                        <li> I immediately dived into all of MSU's clubs and resources</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Co-op at Ergon Refining, Inc.</h3>
+                <div class="date">Spring 2023, Fall 2023, and Summer 2024</div>
+                <p>
+                    <ul>
+                        <li> This <a href="https://ergon.com"> co-op</a> was one of the best decisions I have ever made </li>
+                        <br>
+                        <li> It instilled a level of professionality and attention to detail that I could not have learned anywhere else</li>
+                        <br>
+                        <li> I worked as a Project and Maintenance Engineer Co-op, alternatingly, for a total of 12 months</li>
+                        <br>
+                        <li> I did cool things like lead a unit shutdown, install over half a million dollars worth of small captial projects, and learned about the refinery every single day.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Clubs, Research, Projects, and Studying</h3>
+                <div class="date">Present</div>
+                <p>
+                    <ul>
+                        <li> In February of 2024, I iniitalized an ag-tech startup, SkyPasture. </li>
+                        <br>
+                        <li>I pitched SkyPasture in the 2024 Startup Summit Competition, won, and subsequently raised $750 in Spark Grant funding to accelerate SkyPasture to market </li>
+                        <br> 
+                        <li>I was named a Montgomery Leadership Scholar</li>
+                        <br>
+                        <li>I began doing undergraduate research with <a href = "https://www.me.msstate.edu/people/faculty/christopher-barrett/">Dr. Christopher Barrett</a> in March of 2024. I use HPC clusters and neural networks to fit interatomic potentials of <a href="Official_Pure_Y_Poster_Latex_rev2.pdf">Yttirum</a></li>
+                        <br>
+                        <li>I am a memeber of several other campus-based clubs</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <!-- Add more timeline items as needed -->
+    </div>
+
+    <!-- Theme toggle button -->
+    <button id="theme-toggle">Dark/Light Mode</button>
+
+    <!-- Theme toggle script -->
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+        });
+    </script>
+</body>
+</html> 

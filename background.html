@@ -12,8 +12,10 @@
             --subtitle-color: #b0b0b0;
             --separator-color: #404040;
             --dropdown-bg: #363636;
-            --link-color: #4a9eff;
-            --link-hover: #6eb4ff;
+            --link-color: #66b3ff;
+            --link-hover: #99ccff;
+            --container-bg: #333333;
+            --credentials-bg: #3a3a3a;
         }
 
         .light-theme {
@@ -22,8 +24,10 @@
             --subtitle-color: gray;
             --separator-color: #ccc;
             --dropdown-bg: #f5f5f5;
-            --link-color: #007BFF;
-            --link-hover: #0056b3;
+            --link-color: #0066cc;
+            --link-hover: #0052a3;
+            --container-bg: #f0f0f0;
+            --credentials-bg: #ffffff;
         }
 
         body {
@@ -170,6 +174,18 @@
         #theme-toggle:hover {
             background-color: var(--link-hover);
         }
+
+        /* Update or add styles for regular links */
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -197,6 +213,7 @@
         <div class="page-title">My Background</div>
         <div class="nav-links">
             <a href="one-bubble.html">Home</a>
+            <a href="timeline.html">Timeline</a>
             <a href="https://github.com/AndrewTrepagnier">GitHub</a>
             <a href="https://linkedin.com/in/andrewtrepagnier">Linkedin</a>
         </div>
@@ -205,24 +222,35 @@
     <div class="separator"></div>
 
     <div class="content">
-        <h3>Overview:</h3>
-         <p>Hello, I'm Andrew. I'm a mechanical engineer with a deep passion for software, data, and machine learning.</p>
+        
+        <p>
+            Hey guys, my name is Andrew. I am mechancial engineering student at <a href = "https://www.msstate.edu">Mississippi State University</a>. I built this webpage for people
+            to learn more about me such as projects I've done, expereinces I've had, and what I am currently working on.
+        </p>
+        <br>
+      
+        <h2>Somethings about me:</h2>
 
-            <p>I enjoy building things, whether it's a full-stack web application, machine-learning models, or embedded systems. My background combines mechanical engineering principles with programming, allowing me to explore fields like robotics, computational modeling, and software engineering.</p>
+        <ul>
+            <li>I am from New Roads, Lousisiana and I currently live in Starkville, Mississippi  </li>
+            <li>I attended <a href = "https://www.trinity.edu"> Trinity Univeristy </a> in San Antonio, Texas for the first 2 years of undergrad then transferred to MSU to study mechanical engineering</li>
+            <li> I love the perfect intersection between mechanical engineering and machine learning. Don't mention tech startups infront of me or I will talk about them forever</li>
+            <li> My passion for software, math, and engineering, makes me obsessed with learning. Currently, I am a student researcher at the <a href = "https://www.hpc.msstate.edu">High Performance Computing Collaboratory</a>.</li>
+            <li>After I graduate, I have plans to go work for <a href = "https://corporate.exxonmobil.com">ExxonMobil</a> in Beaumont, Texas as a Mechanical Integrity Engineer.</li>
+            <br>
+            <li>Want to learn even more? Click my <a href = "timeline.html">timeline</a></li>
+        </ul>
 
-            <p>Currently, I'm exploring different software projects and working on refining my skills in applied math, statistics, and machine learning.</p>
 
-            <p>In my free time, I like to work on side projects, contribute to open-source, and learn about startup culture and venture-backed software businesses. If you're interested in similar things, feel free to connect!</p>
-
-        <h3>Some things I beleive in:</h3>
+        <h2>Some things I beleive in:</h2>
 
             <p>
                 <ul>
-                    <li> Real growth is uncomfortable and when solutions seem ambiguous </li>
+                    <li> <i>Real</i> growth is uncomfortable  </li>
                         <ul>
                             <li>You have to be able to hold your work up to someone/something else and self-reflect. Fall short, learn the difference, and then try again.</li>
                             <li>
-                                The philosophy is from my favorite quote 
+                                The philosophy is from my favorite quote by Frank Stephenson, the McLaren P1 designer. 
                                 <input type="checkbox" id="quote-toggle" class="quote-trigger" style="display: none;">
                                 <div class="quote-dropdown">
                                     ""[Which leads me onto an incredibly important point. Listen up...] You have to put the hours into yourself, you have to reach a certain level of capability if you want somebody else to give you a chance. 
@@ -236,20 +264,21 @@
                                     <br>
                                     - Frank Stephenson
                                 </div>
-                                <label for="quote-toggle" class="quote-label">by Frank Stephenson</label>
-                                , the McLaren P1 designer
+                                <label for="quote-toggle" class="quote-label"><i>[Expand]</i></label>
+                                
                             </li>
                         </ul>
-                    <li> Technical skills are useless without leadership skills</li>
-                        <ul
-                            <li> Great leaders are close to the metal of a problem and have a visceral understanding of what they are leading. </li>
+                        <li> I embrace iterative ambition.</li>
+                            <ul>
+                                <li> The perfect state of your work very rarely ever appears on your first try. </li>
+                                <li> Iteration and feedback are quintessential to success.</li>
+                            </ul>
+                    <li> Great leaders are close to the metal</li>
+                        <ul>
+                            <li> <i>You have to have a visceral understanding of what they are leading.</i> </li>
                             <li> Similarly, a highly technical person must be able to effectively communicate and operate with conviction why still being open-minded.</li>
                         </ul>
-                    <li> I embrace iterative ambition.</li>
-                        <ul>
-                            <li> The perfect state of your work very rarely ever appears on your first try. </li>
-                            <li> Iteration and feedback are quintessential.</li>
-                        </ul>
+                    
 
                 </ul>
             </p>
