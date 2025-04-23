@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Trepagnier - Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f2f2f2;
+            --text-color: #333;
+            --subtitle-color: gray;
+            --separator-color: #ccc;
+            --dropdown-bg: #f5f5f5;
+            --link-color: #007BFF;
+            --link-hover: #0056b3;
+            --container-bg: #f2f2f2;
+            --credentials-bg: #ffffff;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Existing header styles */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: var(--container-bg);
+            color: var(--text-color);
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .emblem-bubble {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            bottom: 0;
+            right: -18px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border: 2px solid white;
+        }
+
+        .emblem-bubble img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h1 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .profile-info h2 {
+            font-size: 16px;
+            color: var(--subtitle-color);
+            margin: 5px 0 10px 0;
+        }
+
+        /* Updated Safari-like grid styles */
+        .grid-section {
+            margin-top: 50px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .grid-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .icon-container {
+            width: 55px;
+            height: 55px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .icon-container img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .item-content {
+            flex: 1;
+        }
+
+        .item-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0 0 5px 0;
+            color: var(--text-color);
+        }
+
+        .item-description {
+            font-size: 14px;
+            color: var(--subtitle-color);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .item-honors {
+            font-size: 12px;
+            color: var(--subtitle-color);
+            margin: 4px 0 0 0;
+            line-height: 1.3;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-section">
+                <div class="profile-pic">
+                    <img src="best_one.jpg" alt="Profile Picture">
+                </div>
+                <div class="emblem-bubble">
+                    <img src="seal.png" alt="University Emblem">
+                </div>
+            </div>
+            <div class="profile-info">
+                <h1>Andrew Trepagnier</h1>
+                <h2>Mechanical Engineering Undergrad, Mississippi State</h2>
+                <p>I like building and learning about high tech things. I try to document and share my work and projects here for others to engage!</p>
+            </div>
+        </div>
+
+        <!-- Projects Grid Section -->
+        <div class="grid-section">
+            <h3 class="section-title">
+                Projects in Progress
+                <a href="#" class="view-all">View all ↗</a>
+            </h3>
+            <div class="grid-container">
+
+                <a href="project1.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="box.jpeg" alt="">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">Machine-Learned Interatomic Potentials in PyTorch</h4>
+                        <p class="item-description">I transcribed structural fingerprint algorithms from C++ to Python, trained a Pytorch model, and tested accuracy and computational efficiency benchmarks. </p>
+                    </div>
+                </a>
+
+                <a href="project1.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="" alt="">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">Mechanism Library</h4>
+                        <p class="item-description">Contributor to the open-source project, mechanism, by Gabe Morris. It has ~50k downloads.</p>
+                    </div>
+                </a>
+
+
+
+                <a href="project1.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="" alt="">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">Building the Fundamentals of Large Language Models</h4>
+                        <p class="item-description">Developed an innovative mechanical system for aerospace applications. Implemented using SolidWorks and rapid prototyping.</p>
+                    </div>
+                </a>
+
+
+                <a href="project2.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="icons/project2.png" alt="Project 2">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">Research Initiative</h4>
+                        <p class="item-description">Conducted research on advanced materials and their applications in mechanical engineering.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Education Grid Section -->
+        <div class="grid-section">
+            <h3 class="section-title">
+                Education
+                <a href="#" class="view-all">View all ↗</a>
+            </h3>
+            <div class="grid-container">
+                <a href="project1.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="" alt="Northwestern University">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">University </h4>
+                        <p class="item-description">Master of Science, Applied Mathematics and Statistics</p>
+                        <p class="item-honors">Graduate Research Assistant • Dean's List • 4.0 GPA</p>
+                    </div>
+                </a>
+                <a href="project2.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="msu.png" alt="Project 2">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">Mississippi State University</h4>
+                        <p class="item-description">Bachelor of Science, Mechanical Engineering</p>
+                        <p class="item-honors"> Graduated with Honors and Leadership Honors • Undergraduate Research Assistant</p>
+                    </div>
+                </a>
+                <!-- <a href="project2.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="CESPC_Logo.png" alt="Project 2">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">Catholic High of Pointe Coupee</h4>
+                        <p class="item-description"></p>
+                        <p class="item-honors"> #3 in my graduating class • "ACT Excellence" Award • 4.21 GPA</p>
+                    </div>
+                </a> -->
+            </div>
+        </div>
+
+        <!-- Links Grid Section -->
+        <div class="grid-section">
+            <h3 class="section-title">
+                Quick Links
+                <a href="#" class="view-all">View all ↗</a>
+            </h3>
+            <div class="grid-container">
+                <a href="https://github.com/AndrewTrepagnier" class="grid-item">
+                    <div class="icon-container">
+                        <img src="https://github.com/favicon.ico" alt="GitHub">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">GitHub</h4>
+                        <p class="item-description">Check out my open-source projects and contributions to the engineering community.</p>
+                    </div>
+                </a>
+                <a href="background.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="icons/about.png" alt="About Me">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">About Me</h4>
+                        <p class="item-description">Learn more about my background, skills, and experiences in mechanical engineering.</p>
+                    </div>
+                </a>
+                <a href="Official_Pure_Y_Poster_Latex_rev2.pdf" class="grid-item">
+                    <div class="icon-container">
+                        <img src="icons/papers.png" alt="Papers">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">Published Works</h4>
+                        <p class="item-description">Access my research papers and technical publications in the field.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
