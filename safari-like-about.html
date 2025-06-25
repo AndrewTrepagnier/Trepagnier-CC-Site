@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Andrew Trepagnier - Personal Blog</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #fdfdfd;
+      color: #222;
+    }
+
+    .intro-section {
+      position: relative;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+    }
+
+    /* Watermark positioned in the top left, floating faintly */
+    .watermark-bg {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      opacity: 0.04;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .watermark-bg img {
+      width: 180px;
+      height: auto;
+      filter: grayscale(170%) brightness(100%);
+    }
+
+    .intro-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-picture-wrapper {
+      flex-shrink: 0;
+      width: 220px;
+      height: 220px;
+    }
+
+    .profile-picture {
+      width: 60%;
+      height: 60%;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .intro-text {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.25rem;
+      font-weight: 700;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .intro-text p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Expand arrow styles */
+    .expand-arrow {
+      text-align: center;
+      margin: 2rem 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .expand-arrow:hover {
+      transform: translateY(2px);
+    }
+
+    .arrow-icon {
+      width: 40px;
+      height: 40px;
+      background: #f0f0f0;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border: 2px solid #e0e0e0;
+    }
+
+    .expand-arrow:hover .arrow-icon {
+      background: #e8e8e8;
+      border-color: #d0d0d0;
+    }
+
+    .arrow-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #666;
+      transition: transform 0.3s ease;
+    }
+
+    .expanded .arrow-icon svg {
+      transform: rotate(180deg);
+    }
+
+    /* Expandable content */
+    .expandable-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
+      margin-bottom: 2rem;
+    }
+
+    .expandable-content.expanded {
+      max-height: 2000px;
+    }
+
+    .expandable-content-inner {
+      padding: 2rem;
+    }
+
+    .posts {
+      margin-top: 3rem;
+    }
+
+    .posts h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .posts ul {
+      list-style: square;
+      padding-left: 1.5rem;
+    }
+
+    .posts li {
+      margin-bottom: 0.75rem;
+    }
+
+    .posts a {
+      color: #0645AD;
+      text-decoration: none;
+    }
+
+    .posts a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="intro-section">
+    <!-- Watermark floating behind in the top left corner -->
+    <div class="watermark-bg">
+      <img src="seal.png" alt="Watermark">
+    </div>
+
+    <div class="intro-content">
+      <div class="profile-picture-wrapper">
+        <img src="best_one.jpg" alt="Andrew Trepagnier" class="profile-picture">
+      </div>
+
+      <div class="intro-text">
+        <h1>Andrew Trepagnier</h1>
+        <p class="tagline">Mechanical Engineer • Published Researcher • Tech Enthusiast</p>
+        <p>I am an engineer with a technical background in computational material science, mathematics, and computer programming. I have experience implementing my technical skills into clean, published codebases and packages.
+            I've worked with many tenured proffesors, post-doc associates, graduate students, and talented engineers building projects that have clear impact and meaningful duties. </p>
+        <p>This site is my digital portfolio and notebook — documenting experiments, thoughts, and things I find cool. Welcome to my corner of the web.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Expand arrow -->
+  <div class="expand-arrow" onclick="toggleContent()">
+    <div class="arrow-icon">
+      <svg viewBox="0 0 24 24">
+        <path d="M7 10l5 5 5-5z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Expandable content: exact replica of intro-section -->
+  <div class="expandable-content" id="expandableContent">
+    <div class="expandable-content-inner" style="padding: 0;">
+      <div class="intro-section">
+        <div class="watermark-bg">
+          <img src="" alt="Watermark">
+        </div>
+        <div class="intro-content">
+          <div class="profile-picture-wrapper">
+            <img src="box-atoms.jpeg" alt="" class="profile-picture">
+          </div>
+          <div class="intro-text">
+            <h2>Quick Facts About Me</h2>
+            <!-- <p class="tagline">Mechanical Engineer • Published Researcher • Tech Enthusiast</p> -->
+            <p>
+                <strong>Name:</strong> Andrew Trepagnier<br>
+                <strong>Age:</strong> 24 years old<br>
+                <strong>Location:</strong> Houston Area<br>
+                <strong>Hobbies:</strong> Reading/Writing, Running, Fishing, Time with family and friends</a> 
+            </p>
+            <h3>Study Interest</h3>
+            <p>My study interest include Random Matrix Theory, Dynamical Systems, and Computational Material Science.</p>
+
+            <p>Despite having an applied engineering background, I always loved the system-level of things. I love working on high dimensional, messy data deep within large software and control systems. </p>
+            <p>This encomposes everything from the stability and behavior of the system to how error propagates through scale. How can you maintain performance guarentees, understand the sensitivity of change, and model uncertainty within a system that has a million moving parts (or lines of code 🙂)? That is what I focus on.</p>
+            <p>While at Mississippi State, I worked as a undergraduate research assisstant for Dr. Christopher Barrett and Dr. Doyl Dickel in machine learned interatomic potential fitting. I specifically was tasked with studying Yttrium in its Hexagonal-Close Packed crystal structure. I trained a machine learning model over  ~10k datapoints of Density Functionals to fit an energy potential for larger molecular dynamics simulations in LAMMPS. </p>
+
+            <p>I loved this work, namely the computational mathematics and neumerical methods we imployed to build quality, publishable results.</p>
+
+            <h3>Strongest Skills</h3>
+            <ul>
+                <li><strong>Python:</strong> Roughly 15k+ lines of object-oreinted DataClass/Class systems and programs logged on my <a href="https://github.com/AndrewTrepagnier">Github</a></li>
+                <br>
+                <li><strong>MATLAB:</strong> Concisly used for controls analysis and system identification for physics simulations</li>
+                <br>
+                <li><strong>C++:</strong> 5k+ lines </li>
+                <br>
+                <li><strong>Go, Rust, JAVA:</strong> Familiar and continuously learning </li>
+            </ul>
+            <h3>Tools/Softwares</h3>
+            <ul>
+                <li><strong>Git:</strong> Collaborated and contributed using git for version control and management on projects with over 55k+ downloads</li>
+                <br>
+                <li><strong>CAD:</strong> 1+ year work expereince with AutoCAD products, I hold certifications in Soldiworks and Inventor </li>
+                <br>
+                <li><strong>Ovito, Quantum Esspresso, LAMMPS:</strong> The heart of my undergrad research</li>
+                <br>
+                <li><strong>Linux Shell:</strong> Comfortable with working through a linux terminal to communicate with HPC supercomputers and softwares</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  
+
+  <div class="posts">
+    <h2>Recent Posts</h2>
+    <ul>
+      <li><a href="#">Training ML Potentials with PyTorch</a> – Mar 2025</li>
+      <li><a href="#">Visualizing Gradient Descent with Code</a> – Feb 2025</li>
+      <li><a href="#">Why I Love the Math Behind Engineering</a> – Jan 2025</li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleContent() {
+      const content = document.getElementById('expandableContent');
+      const arrow = document.querySelector('.expand-arrow');
+      
+      if (content.classList.contains('expanded')) {
+        content.classList.remove('expanded');
+        arrow.classList.remove('expanded');
+      } else {
+        content.classList.add('expanded');
+        arrow.classList.add('expanded');
+      }
+    }
+  </script>
+
+</body>
+</html>

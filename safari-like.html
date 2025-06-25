@@ -120,61 +120,108 @@
         }
 
         .grid-container {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
+            padding: 10px;
         }
 
         .grid-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .grid-item:hover .item-title {
             color: var(--text-color);
         }
 
         .icon-container {
             width: 55px;
             height: 55px;
-            background-color: var(--card-bg);
-            border-radius: 20px;
+            background: linear-gradient(145deg, #ffffff, #e6e6e6);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
+            margin-right: 15px;
+            box-shadow: 
+                6px 6px 12px rgba(0, 0, 0, 0.15),
+                -4px -4px 8px rgba(255, 255, 255, 0.7),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+                inset -1px -1px 2px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .icon-container:hover {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 
+                8px 8px 16px rgba(0, 0, 0, 0.2),
+                -6px -6px 12px rgba(255, 255, 255, 0.8),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+                inset -1px -1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .ml-container {
+            background: linear-gradient(145deg, #b30000, #8f0000);
+            box-shadow: 
+                6px 6px 12px rgba(0, 0, 0, 0.2),
+                -4px -4px 8px rgba(191, 0, 0, 0.3),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+                inset -1px -1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .ml-container:hover {
+            box-shadow: 
+                8px 8px 16px rgba(0, 0, 0, 0.25),
+                -6px -6px 12px rgba(191, 0, 0, 0.4),
+                inset 1px 1px 2px rgba(255, 255, 255, 0.1),
+                inset -1px -1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .icon-container img {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             object-fit: contain;
         }
 
         .item-content {
             flex: 1;
+            min-width: 0;
         }
 
         .item-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 500;
             margin: 0 0 5px 0;
             color: var(--text-color);
         }
 
         .item-description {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--subtitle-color);
             margin: 0;
             line-height: 1.4;
         }
 
         .item-honors {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--subtitle-color);
             margin: 4px 0 0 0;
             line-height: 1.3;
             opacity: 0.8;
+        }
+
+        /* Special style for education section */
+        .education-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 10px;
         }
     </style>
 </head>
@@ -192,8 +239,8 @@
             </div>
             <div class="profile-info">
                 <h1>Andrew Trepagnier</h1>
-                <h2>Mechanical Engineering Undergrad, Mississippi State</h2>
-                <p>I like building and learning about high tech things. I try to document and share my work and projects here for others to engage!</p>
+                <h2>Engineer, Published Researcher, and Tech Enthusiast</h2>
+                <p> Building and learning with the daring and ambitious</p>
             </div>
         </div>
 
@@ -206,8 +253,8 @@
             <div class="grid-container">
 
                 <a href="project1.html" class="grid-item">
-                    <div class="icon-container">
-                        <img src="box.jpeg" alt="">
+                    <div class="icon-container ml-container">
+                        <img src="atoms.png" alt="">
                     </div>
                     <div class="item-content">
                         <h4 class="item-title">Machine-Learned Interatomic Potentials in PyTorch</h4>
@@ -229,7 +276,7 @@
 
                 <a href="project1.html" class="grid-item">
                     <div class="icon-container">
-                        <img src="" alt="">
+                        <img src="nn.jpeg" alt="">
                     </div>
                     <div class="item-content">
                         <h4 class="item-title">Building the Fundamentals of Large Language Models</h4>
@@ -240,7 +287,7 @@
 
                 <a href="project2.html" class="grid-item">
                     <div class="icon-container">
-                        <img src="icons/project2.png" alt="Project 2">
+                        <img src="hcp.jpeg" alt="Project 2">
                     </div>
                     <div class="item-content">
                         <h4 class="item-title">Research Initiative</h4>
@@ -256,15 +303,15 @@
                 Education
                 <a href="#" class="view-all">View all ↗</a>
             </h3>
-            <div class="grid-container">
+            <div class="education-container">
                 <a href="project1.html" class="grid-item">
                     <div class="icon-container">
-                        <img src="" alt="Northwestern University">
+                        <img src="Arms_of_University_of_Oxford.svg" alt="University">
                     </div>
                     <div class="item-content">
-                        <h4 class="item-title">University </h4>
-                        <p class="item-description">Master of Science, Applied Mathematics and Statistics</p>
-                        <p class="item-honors">Graduate Research Assistant • Dean's List • 4.0 GPA</p>
+                        <h4 class="item-title">University of Oxford </h4>
+                        <p class="item-description">Master of Science, Mathematical Modeling</p>
+                        <p class="item-honors"> Exeter College • First Class Honours / 4.0+ GPA</p>
                     </div>
                 </a>
                 <a href="project2.html" class="grid-item">
@@ -274,7 +321,7 @@
                     <div class="item-content">
                         <h4 class="item-title">Mississippi State University</h4>
                         <p class="item-description">Bachelor of Science, Mechanical Engineering</p>
-                        <p class="item-honors"> Graduated with Honors and Leadership Honors • Undergraduate Research Assistant</p>
+                        <p class="item-honors"> With Honors and Leadership Honors • Undergraduate Research Assistant</p>
                     </div>
                 </a>
                 <!-- <a href="project2.html" class="grid-item">
@@ -289,6 +336,56 @@
                 </a> -->
             </div>
         </div>
+
+
+
+
+
+         <!-- Career Grid Section -->
+         <div class="grid-section">
+            <h3 class="section-title">
+                Career
+                <a href="#" class="view-all">View all ↗</a>
+            </h3>
+            <div class="education-container">
+                <a href="project1.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="exxon.jpeg" alt="Northwestern University">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">ExxonMobil Corporation </h4>
+                        <p class="item-description">Mechanical Integrity Engineer</p>
+                        <p class="item-honors"></p>
+                    </div>
+                </a>
+                <a href="project2.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="images.png" alt="Project 2">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">Ergon Refining, Inc</h4>
+                        <p class="item-description">Project/Maintenance Engineer Co-op</p>
+                        <p class="item-honors"> 12 month program alternated with school semesters. Led a 4 Day unit shutdown and designed and implemented $500,000+ worth of small capital projects</p>
+                    </div>
+                </a>
+                <!-- <a href="project2.html" class="grid-item">
+                    <div class="icon-container">
+                        <img src="CESPC_Logo.png" alt="Project 2">
+                    </div>
+                    <div class="item-content">
+                        <h4 class="item-title">Catholic High of Pointe Coupee</h4>
+                        <p class="item-description"></p>
+                        <p class="item-honors"> #3 in my graduating class • "ACT Excellence" Award • 4.21 GPA</p>
+                    </div>
+                </a> -->
+            </div>
+        </div>
+
+
+
+
+
+
 
         <!-- Links Grid Section -->
         <div class="grid-section">
